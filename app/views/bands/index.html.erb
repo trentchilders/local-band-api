@@ -2,7 +2,8 @@
 {{1+1}}
 
  <div ng-controller="bandsCtrl" ng-init="setup()">
-    <div ng-repeat="band in bands">
+    <input ng-model="nameFilter">
+    <div ng-repeat="band in bands | filter:  {name: nameFilter}">
       <p>{{band.name}}</p>
       <p>{{band.email}}</p>
       <p>{{band.number_members}}</p>
