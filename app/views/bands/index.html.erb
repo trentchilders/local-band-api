@@ -1,0 +1,25 @@
+<div ng-app="app">
+{{1+1}}
+
+ <div ng-controller="bandsCtrl" ng-init="setup()">
+    <div ng-repeat="band in bands">
+      <p>{{band.name}}</p>
+      <p>{{band.email}}</p>
+      <p>{{band.number_members}}</p>
+   </div>
+
+   <div>
+    <ul ng-repeat="error in errors">
+    <li>
+    {{error}}
+    </li>
+    </ul>
+   </div>
+    <div>
+    Name: <input ng-model="newBandName">
+    email: <input ng-model="newBandEmail">
+    Number Of Members: <input ng-model="newBandNumberMembers">
+    <button ng-click="addBand(newBandName, newBandEmail, newBandNumberMembers)"> Add Band </button>
+    </div>
+</div>
+</div>

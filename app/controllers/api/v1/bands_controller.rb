@@ -10,8 +10,12 @@ class Api::V1::BandsController < ApplicationController
 
   def create
     @band = Band.create(name: params[:name], email: params[:email], number_members: params[:number_members])
-
+    
+    if @band.save
     render :show
+    else
+      render json: { errors: @band.errors.full_messages }, status: 422
+    end
   end
 
   def update
@@ -28,4 +32,7 @@ class Api::V1::BandsController < ApplicationController
 
     render nothing: true
   end
+
+
+
 end

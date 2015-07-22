@@ -10,4 +10,5 @@ namespace :api do
      delete '/bands/:id' => 'bands#destroy'
    end
  end
+ get '/index' => 'bands#index'
 end
