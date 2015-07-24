@@ -23,6 +23,12 @@
       });
 
     };
+
+    $scope.toggleOrder = function(attribute) {
+      $scope.orderAttribute = attribute;
+      $scope.descending = !$scope.descending;
+    };
+
   });
 
 }());

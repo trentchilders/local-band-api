@@ -1,3 +1,17 @@
 // Place all the styles related to the bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ng-enter, .ng-move{
+  -webkit-animation: wobble 1s;
+  -moz-animation: wobble 1s;
+  -o-animation: wobble 1s;
+  animation: wobble 1s;
+}
+
+.ng-leave{
+  -webkit-animation: bounceOut 1s;
+  -moz-animation: bounceOut 1s;
+  -o-animation: bounceOut 1s;
+  animation: bounceOut 1s;
+}

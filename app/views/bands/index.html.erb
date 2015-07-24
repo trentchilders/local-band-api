@@ -2,13 +2,26 @@
 {{1+1}}
 
  <div ng-controller="bandsCtrl" ng-init="setup()">
-    <input ng-model="nameFilter">
-    <div ng-repeat="band in bands | filter:  {name: nameFilter}">
-      <p>{{band.name}}</p>
-      <p>{{band.email}}</p>
-      <p>{{band.number_members}}</p>
-   </div>
+    <input ng-model="nameFilter" list="names">
+    
+    <datalist id="names">
+      <option ng-repeat="band in bands">{{ band.name }}</option>
+    </datalist>
 
+    <table>
+      <tbody>
+      <tr>
+      <td ng-click="toggleOrder('name')">Band Name</td>
+      <td ng-click="toggleOrder('email')">email</td>
+      <td ng-click="toggleOrder('number_members')">number of members</td>
+      </tr>
+        <tr ng-repeat="band in bands | filter:  {name: nameFilter} | orderBy:orderAttribute:descending ">
+          <td>{{band.name}}</td>
+          <td>{{band.email}}</td>
+          <td>{{band.number_members}}</td>
+        </tr>
+      </tbody>
+    </table>
    <div>
     <ul ng-repeat="error in errors">
     <li>
